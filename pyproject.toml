@@ -34,14 +34,14 @@ line_length = 120
 name = "fastapi-project"
 version = "0.1.0"
 description = ""
-authors = ["Бекарюков Максим Викторович <mvbekaryuk@mts.ru>"]
+authors = ["Tenishev Nikita <nik.tenishev@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.109.0"
 uvicorn = "^0.27.0.post1"
-pydantic = "^2.6.0"
+pydantic = {extras = ["email"], version = "^2.6.3"}
 icecream = "^2.1.3"
 orjson = "^3.9.12"
 sqlalchemy = "^2.0.25"
