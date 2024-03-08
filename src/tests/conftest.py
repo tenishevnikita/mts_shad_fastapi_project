@@ -1,4 +1,5 @@
-""" Это модуль с фикстурами для пайтеста.
+"""
+Это модуль с фикстурами для пайтеста.
 Фикстуры - это особые функции, которые не надо импортировать явно.
 Сам пайтест подтягивает их по имени из файла conftest.py
 """
@@ -10,10 +11,8 @@ import pytest
 import pytest_asyncio
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
-from src.configurations.settings import settings
-from src.models import books  # noqa
+from src.configurations import settings
 from src.models.base import BaseModel
-from src.models.books import Book  # noqa F401
 
 # Переопределяем движок для запуска тестов и подключаем его к тестовой базе.
 # Это решает проблему с сохранностью данных в основной базе приложения.
@@ -21,7 +20,7 @@ from src.models.books import Book  # noqa F401
 # и обеспечивает чистую среду для запуска тестов. В ней не будет лишних записей.
 async_test_engine = create_async_engine(
     settings.database_test_url,
-    echo=True,
+    echo=False,
 )
 
 # Создаем фабрику сессий для тестового движка.
